@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            height: 70vh;
+            box-sizing: border-box;
+            z-index: 1; /* Ensures the form is above the particles */
+            overflow-y: auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form action="https://script.google.com/macros/s/AKfycbzpNu-QACiqHKOeUmILpberyIzKk5FeUZocOQRfE5x3vlLi4yeRiV3G0e4BUMDL50kh/exec" method="post">
+        <h1>Eturna Defect Tracker</h1>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="Date" required><br><br>
+
+        <label for="shift">Shift:</label>
+        <input type="text" id="shift" name="Shift" required><br><br>
+
+        <label for="vinNo">VIN No:</label>
+        <input type="text" id="vinNo" name="VinNo" required><br><br>
+
+        <label for="issue">Issue:</label>
+        <input type="text" id="issue" name="Issue" required><br><br>
+
+        <label for="failurePart">Failure Part:</label>
+        <input type="text" id="failurePart" name="FailurePart" required><br><br>
+
+        <label for="supplierName">Supplier Name:</label>
+        <input type="text" id="supplierName" name="SupplierName" required><br><br>
+
+        <label for="dtc">DTC:</label>
+        <input type="text" id="dtc" name="DTC" required><br><br>
+
+        <label for="action">Action:</label>
+        <input type="text" id="action" name="Action" required><br><br>
+
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="Image"><br><br>
+
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="Status" required><br><br>
+
+        <label for="remark">Remark:</label>
+        <input type="text" id="remark" name="Remark" required><br><br>
+
+        <input type="submit" value="submit" name="submit" id="sub">
+    </form>
+</body>
+</html>

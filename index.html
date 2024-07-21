@@ -78,6 +78,12 @@
             width: 100%;
             box-sizing: border-box;
         }
+        #model, #issueType, #reportedAt, #reportedBy, #agency, #status{
+            width: 100%;
+            font-size: 100%;
+            padding: 10px;
+            border-radius: 4px;
+        }
 
         input[type="submit"]:hover {
             background-color: #45a049;
@@ -90,41 +96,104 @@
 <body>
     <div id="particles-js"></div>
     <form action="https://script.google.com/macros/s/AKfycbysL_RDEUxtQ8dYxIn7ZFOdLO6K7qIbuLzN8bDfp9YJ-k-1OSlHX4avoNEpAMGF9VvC/exec" method="post">
-        <h1>Eturna Defect Tracker</h1>
-
+        <h1>Defect Tracker</h1>
         <label for="date">Date:</label>
         <input type="date" id="date" name="Date" required><br><br>
 
-        <label for="shift">Shift:</label>
-        <input type="text" id="shift" name="Shift" required><br><br>
+        <label for="model">Model:</label>
+        <select id="model" name="Model" required>
+            <option value="Nova">Nova</option>
+            <option value="Nexon">Nexon</option>
+            <option value="Eturna">Eturna</option>
+        </select><br><br>
 
-        <label for="vinNo">VIN No:</label>
-        <input type="text" id="vinNo" name="VinNo" required><br><br>
+        <label for="variant">Variant:</label>
+        <input type="text" id="variant" name="Variant" required><br><br>
 
-        <label for="issue">Issue:</label>
-        <input type="text" id="issue" name="Issue" required><br><br>
+        <label for="matNo">Mat No.:</label>
+        <input type="text" id="matNo" name="MatNo" required><br><br>
 
-        <label for="failurePart">Failure Part:</label>
-        <input type="text" id="failurePart" name="FailurePart" required><br><br>
+        <label for="issueType">Issue Type:</label>
+        <select id="issueType" name="IssueType" required class="dropdown">
+            <option value="Functional">Functional</option>
+            <option value="Software issue">Software issue</option>
+            <option value="Hardware issue">Hardware issue</option>
+            <option value="Process (manufacturing)">Process (manufacturing)</option>
+            <option value="Design">Design</option>
+            <option value="Paint">Paint</option>
+            <option value="Part wrong">Part wrong</option>
+            <option value="Part missing">Part missing</option>
+        </select><br><br>
 
-        <label for="supplierName">Supplier Name:</label>
-        <input type="text" id="supplierName" name="SupplierName" required><br><br>
+        <label for="rootCause">Root Cause:</label>
+        <input type="text" id="rootCause" name="RootCause" required><br><br>
+
+        <label for="ica">ICA:</label>
+        <input type="text" id="ica" name="ICA" required><br><br>
+
+        <label for="pca">PCA:</label>
+        <input type="text" id="pca" name="PCA" required><br><br>
 
         <label for="dtc">DTC:</label>
         <input type="text" id="dtc" name="DTC" required><br><br>
 
-        <label for="action">Action:</label>
-        <input type="text" id="action" name="Action" required><br><br>
+        <label for="reportedAt">Reported At:</label>
+        <select id="reportedAt" name="ReportedAt" required class="dropdown">
+            <option value="TCF-1">TCF-1</option>
+            <option value="EV-shop">EV-shop</option>
+            <option value="TCF-2">TCF-2</option>
+            <option value="DT">DT</option>
+            <option value="Shower">Shower</option>
+            <option value="End of Line EV shop">End of Line EV shop</option>
+            <option value="Field">Field</option>
+            <option value="Tata PDI">Tata PDI</option>
+            <option value="TMLD">TMLD</option>
+            <option value="Other">Other</option>
+        </select><br><br>
 
-        <label for="image">Image:</label>
-        <input type="file" id="image" name="Image"><br><br>
+        <label for="reportedBy">Reported By:</label>
+        <select id="reportedBy" name="ReportedBy" required class="dropdown">
+            <option value="Amol">Amol</option>
+            <option value="Surrendra">Surrendra</option>
+            <option value="Rakesh">Rakesh</option>
+            <option value="Rahul">Rahul</option>
+            <option value="Nilesh">Nilesh</option>
+            <option value="Nagraj">Nagraj</option>
+            <option value="Neha">Neha</option>
+            <option value="Jalal">Jalal</option>
+            <option value="Javed">Javed</option>
+            <option value="Shejwal">Shejwal</option>
+            <option value="Vishal">Vishal</option>
+            <option value="Pratik">Pratik</option>
+            <option value="Shwetang">Shwetang</option>
+            <option value="Tahir">Tahir</option>
+            <option value="Purshotam">Purshotam</option>
+            <option value="Swapnil">Swapnil</option>
+        </select><br><br>
+
+        <label for="agency">Agency:</label>
+        <select id="agency" name="Agency" required class="dropdown">
+            <option value="ERC">ERC</option>
+            <option value="VQ">VQ</option>
+            <option value="AQ">AQ</option>
+            <option value="EVAQ">EVAQ</option>
+            <option value="MQ">MQ</option>
+        </select><br><br>
+
+        <label for="responsibility">Responsibility:</label>
+        <input type="text" id="responsibility" name="Responsibility" required><br><br>
 
         <label for="status">Status:</label>
-        <input type="text" id="status" name="Status" required><br><br>
+        <select id="status" name="Status" required class="dropdown">
+            <option value="Red">RED</option>
+            <option value="Ambar">Ambar</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Blue">Blue</option>
+            <option value="Green">Green</option>
+        </select><br><br>
 
         <label for="remark">Remark:</label>
         <input type="text" id="remark" name="Remark" required><br><br>
-
         <input type="submit" value="submit" name="submit" id="sub">
     </form>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>

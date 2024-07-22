@@ -1,318 +1,357 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Defect Tracker</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000000;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            box-sizing: border-box;
-        }
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0; /* Ensures particles are behind the form */
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #000000;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        box-sizing: border-box;
+      }
+      #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0; /* Ensures particles are behind the form */
+      }
 
-        h1 {
-            text-align: center;
-            color: #58ea3f;
-            margin-bottom: 20px;
-        }
+      h1 {
+        text-align: center;
+        color: #58ea3f;
+        margin-bottom: 20px;
+      }
 
+      form {
+        background-color: transparent;
+        padding: 20px 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+        height: 70vh;
+        box-sizing: border-box;
+        z-index: 1; /* Ensures the form is above the particles */
+        overflow-y: auto;
+      }
+      form::-webkit-scrollbar {
+        width: 6px; /* Adjust the width of the scrollbar here */
+      }
+
+      label {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: white;
+      }
+
+      input[type="text"],
+      input[type="date"],
+      input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 20px;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      #model,
+      #issueType,
+      #reportedAt,
+      #reportedBy,
+      #agency,
+      #status {
+        width: 100%;
+        font-size: 100%;
+        padding: 10px;
+        border-radius: 4px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      #image {
+        color: white;
+      }
+      .ipca {
+        height: 150px;
+        text-overflow: hidden;
+      }
+      @media (min-width: 1024px) {
         form {
-            background-color: transparent;
-            padding: 20px 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 500px;
-            height: 70vh;
-            box-sizing: border-box;
-            z-index: 1; /* Ensures the form is above the particles */
-            overflow-y: auto;
+        width: 60%;
         }
-        form::-webkit-scrollbar {
-    width: 6px;  /* Adjust the width of the scrollbar here */
-}
-
-        label {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-            color: white;
-        }
-
-        input[type="text"],
-        input[type="date"],
-        input[type="file"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 20px;
-            font-size: 16px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        #model, #issueType, #reportedAt, #reportedBy, #agency, #status{
-            width: 100%;
-            font-size: 100%;
-            padding: 10px;
-            border-radius: 4px;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-        #image{
-            color: white;
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="particles-js"></div>
-    <form action="https://script.google.com/macros/s/AKfycbysL_RDEUxtQ8dYxIn7ZFOdLO6K7qIbuLzN8bDfp9YJ-k-1OSlHX4avoNEpAMGF9VvC/exec" method="post">
-        <h1>Defect Tracker</h1>
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="Date" required><br><br>
+    <form
+      action="https://script.google.com/macros/s/AKfycbysL_RDEUxtQ8dYxIn7ZFOdLO6K7qIbuLzN8bDfp9YJ-k-1OSlHX4avoNEpAMGF9VvC/exec"
+      method="post"
+    >
+      <h1>Defect Tracker</h1>
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="Date" required /><br /><br />
 
-        <label for="model">Model:</label>
-        <select id="model" name="Model" required>
-            <option value="Nova">Nova</option>
-            <option value="Nexon">Nexon</option>
-            <option value="Eturna">Eturna</option>
-        </select><br><br>
+      <label for="model">Model:</label>
+      <select id="model" name="Model" required>
+        <option value="Nova">Nova</option>
+        <option value="Nexon">Nexon</option>
+        <option value="Eturna">Eturna</option></select
+      ><br /><br />
 
-        <label for="variant">Variant:</label>
-        <input type="text" id="variant" name="Variant" required><br><br>
+      <label for="variant">Variant:</label>
+      <input type="text" id="variant" name="Variant" required /><br /><br />
 
-        <label for="matNo">Mat No.:</label>
-        <input type="text" id="matNo" name="MatNo" required><br><br>
+      <label for="matNo">Vin No.:</label>
+      <input type="text" id="matNo" name="MatNo" required /><br /><br />
 
-        <label for="issueType">Issue Type:</label>
-        <select id="issueType" name="IssueType" required class="dropdown">
-            <option value="Functional">Functional</option>
-            <option value="Software issue">Software issue</option>
-            <option value="Hardware issue">Hardware issue</option>
-            <option value="Process (manufacturing)">Process (manufacturing)</option>
-            <option value="Design">Design</option>
-            <option value="Paint">Paint</option>
-            <option value="Part wrong">Part wrong</option>
-            <option value="Part missing">Part missing</option>
-        </select><br><br>
+      <label for="issueType">Issue Type:</label>
+      <select id="issueType" name="IssueType" required class="dropdown">
+        <option value="Functional">Functional</option>
+        <option value="Software issue">Software issue</option>
+        <option value="Hardware issue">Hardware issue</option>
+        <option value="Process (manufacturing)">Process (manufacturing)</option>
+        <option value="Design">Design</option>
+        <option value="Paint">Paint</option>
+        <option value="Part wrong">Part wrong</option>
+        <option value="Part missing">Part missing</option></select
+      ><br /><br />
 
-        <label for="rootCause">Root Cause:</label>
-        <input type="text" id="rootCause" name="RootCause" required><br><br>
+      <label for="rootCause">Root Cause:</label>
+      <input type="text" id="rootCause" name="RootCause" required /><br /><br />
 
-        <label for="ica">ICA:</label>
-        <input type="text" id="ica" name="ICA" required><br><br>
+      <label for="ica">ICA:</label>
+      <input
+        type="text"
+        id="ica"
+        name="ICA"
+        class="ipca"
+        required
+      /><br /><br />
 
-        <label for="pca">PCA:</label>
-        <input type="text" id="pca" name="PCA" required><br><br>
+      <label for="pca">PCA:</label>
+      <input
+        type="text"
+        id="pca"
+        name="PCA"
+        class="ipca"
+        required
+      /><br /><br />
 
-        <label for="dtc">DTC:</label>
-        <input type="text" id="dtc" name="DTC" required><br><br>
+      <label for="dtc">DTC:</label>
+      <input type="text" id="dtc" name="DTC" required /><br /><br />
 
-        <label for="reportedAt">Reported At:</label>
-        <select id="reportedAt" name="ReportedAt" required class="dropdown">
-            <option value="TCF-1">TCF-1</option>
-            <option value="EV-shop">EV-shop</option>
-            <option value="TCF-2">TCF-2</option>
-            <option value="DT">DT</option>
-            <option value="Shower">Shower</option>
-            <option value="End of Line EV shop">End of Line EV shop</option>
-            <option value="Field">Field</option>
-            <option value="Tata PDI">Tata PDI</option>
-            <option value="TMLD">TMLD</option>
-            <option value="Other">Other</option>
-        </select><br><br>
+      <label for="reportedAt">Reported At:</label>
+      <select id="reportedAt" name="ReportedAt" required class="dropdown">
+        <option value="TCF-1">TCF-1</option>
+        <option value="EV-shop">EV-shop</option>
+        <option value="TCF-2">TCF-2</option>
+        <option value="DT">DT</option>
+        <option value="Shower">Shower</option>
+        <option value="End of Line EV shop">End of Line EV shop</option>
+        <option value="Field">Field</option>
+        <option value="Tata PDI">Tata PDI</option>
+        <option value="TMLD">TMLD</option>
+        <option value="Other">Other</option></select
+      ><br /><br />
 
-        <label for="reportedBy">Reported By:</label>
-        <select id="reportedBy" name="ReportedBy" required class="dropdown">
-            <option value="Amol">Amol</option>
-            <option value="Surrendra">Surrendra</option>
-            <option value="Rakesh">Rakesh</option>
-            <option value="Rahul">Rahul</option>
-            <option value="Nilesh">Nilesh</option>
-            <option value="Nagraj">Nagraj</option>
-            <option value="Neha">Neha</option>
-            <option value="Jalal">Jalal</option>
-            <option value="Javed">Javed</option>
-            <option value="Shejwal">Shejwal</option>
-            <option value="Vishal">Vishal</option>
-            <option value="Pratik">Pratik</option>
-            <option value="Shwetang">Shwetang</option>
-            <option value="Tahir">Tahir</option>
-            <option value="Purshotam">Purshotam</option>
-            <option value="Swapnil">Swapnil</option>
-        </select><br><br>
+      <label for="reportedBy">Reported By:</label>
+      <select id="reportedBy" name="ReportedBy" required class="dropdown">
+        <option value="Amol">Amol</option>
+        <option value="Surrendra">Surrendra</option>
+        <option value="Rakesh">Rakesh</option>
+        <option value="Rahul">Rahul</option>
+        <option value="Nilesh">Nilesh</option>
+        <option value="Nagraj">Nagraj</option>
+        <option value="Neha">Neha</option>
+        <option value="Jalal">Jalal</option>
+        <option value="Javed">Javed</option>
+        <option value="Shejwal">Shejwal</option>
+        <option value="Vishal">Vishal</option>
+        <option value="Pratik">Pratik</option>
+        <option value="Shwetang">Shwetang</option>
+        <option value="Tahir">Tahir</option>
+        <option value="Purshotam">Purshotam</option>
+        <option value="Swapnil">Swapnil</option></select
+      ><br /><br />
 
-        <label for="agency">Agency:</label>
-        <select id="agency" name="Agency" required class="dropdown">
-            <option value="ERC">ERC</option>
-            <option value="VQ">VQ</option>
-            <option value="AQ">AQ</option>
-            <option value="EVAQ">EVAQ</option>
-            <option value="MQ">MQ</option>
-        </select><br><br>
+      <label for="agency">Agency:</label>
+      <select id="agency" name="Agency" required class="dropdown">
+        <option value="ERC">ERC</option>
+        <option value="VQ">VQ</option>
+        <option value="AQ">AQ</option>
+        <option value="EVAQ">EVAQ</option>
+        <option value="MQ">MQ</option></select
+      ><br /><br />
 
-        <label for="responsibility">Responsibility:</label>
-        <input type="text" id="responsibility" name="Responsibility" required><br><br>
+      <label for="responsibility">Responsibility:</label>
+      <input
+        type="text"
+        id="responsibility"
+        name="Responsibility"
+        required
+      /><br /><br />
 
-        <label for="status">Status:</label>
-        <select id="status" name="Status" required class="dropdown">
-            <option value="Red">RED</option>
-            <option value="Ambar">Ambar</option>
-            <option value="Yellow">Yellow</option>
-            <option value="Blue">Blue</option>
-            <option value="Green">Green</option>
-        </select><br><br>
+      <label for="status">Status:</label>
+      <select id="status" name="status" required class="dropdown" onchange="changeColor()">
+        <option value="Red">Red</option>
+        <option value="Ambar">Ambar</option>
+        <option value="Yellow">Yellow</option>
+        <option value="Blue">Blue</option>
+        <option value="Green">Green</option></select
+      ><br /><br />
 
-        <label for="remark">Remark:</label>
-        <input type="text" id="remark" name="Remark" required><br><br>
-        <input type="submit" value="submit" name="submit" id="sub">
+      <label for="remark">Remark:</label>
+      <input type="text" id="remark" name="Remark" required /><br /><br />
+      <input type="submit" value="submit" name="submit" id="sub" />
     </form>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        particlesJS.load('particles-js', 'particles.json', function() {
-            console.log('particles.json loaded...');
-        });
+      particlesJS.load("particles-js", "particles.json", function () {
+        console.log("particles.json loaded...");
+      });
     </script>
     <script>
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#ffffff"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    },
-                    "image": {
-                        "src": "img/github.svg",
-                        "width": 100,
-                        "height": 100
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 5,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 6,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
+      particlesJS("particles-js", {
+        particles: {
+          number: {
+            value: 80,
+            density: {
+              enable: true,
+              value_area: 800,
             },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 400,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
+          },
+          color: {
+            value: "#ffffff",
+          },
+          shape: {
+            type: "circle",
+            stroke: {
+              width: 0,
+              color: "#000000",
             },
-            "retina_detect": true
-        });
+            polygon: {
+              nb_sides: 5,
+            },
+            image: {
+              src: "img/github.svg",
+              width: 100,
+              height: 100,
+            },
+          },
+          opacity: {
+            value: 0.5,
+            random: false,
+            anim: {
+              enable: false,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false,
+            },
+          },
+          size: {
+            value: 5,
+            random: true,
+            anim: {
+              enable: false,
+              speed: 40,
+              size_min: 0.1,
+              sync: false,
+            },
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#ffffff",
+            opacity: 0.4,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 6,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 1200,
+            },
+          },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "repulse",
+            },
+            onclick: {
+              enable: true,
+              mode: "push",
+            },
+            resize: true,
+          },
+          modes: {
+            grab: {
+              distance: 400,
+              line_linked: {
+                opacity: 1,
+              },
+            },
+            bubble: {
+              distance: 400,
+              size: 40,
+              duration: 2,
+              opacity: 8,
+              speed: 3,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+            },
+            push: {
+              particles_nb: 4,
+            },
+            remove: {
+              particles_nb: 2,
+            },
+          },
+        },
+        retina_detect: true,
+      });
+      function changeColor() {
+            const dropdown = document.getElementById('status');
+            const selectedColor = dropdown.options[dropdown.selectedIndex].value;
+            dropdown.style.backgroundColor = selectedColor;
+        }
     </script>
-</body>
+  </body>
 </html>
